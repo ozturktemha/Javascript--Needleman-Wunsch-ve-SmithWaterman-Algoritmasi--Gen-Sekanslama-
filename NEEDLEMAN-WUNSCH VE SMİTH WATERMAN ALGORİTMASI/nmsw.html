@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nükleotid (GEN) Sekanslarının Hizalanması</title>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        html {
+            background: url('image.jpg');
+            background-size: cover;
+        }
+
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 25px;
+            color: red;
+        }
+
+        table {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        td {
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        button {
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 15px;
+            color: whitesmoke;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background: gray;
+            border: 2px solid transparent;
+            transition: all 200ms;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(182, 180, 180);
+            border-color: rgb(175, 40, 40);
+            text-decoration: underline;
+        }
+
+        .inputs tr td {
+            padding: 20px 0;
+            width: 33%;
+        }
+
+        .inputs {
+            background: rgba(255, 255, 255, 0.3);
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        #table {
+            align-self: center;
+            background: #d1d1d1;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 50px;
+            font-size: 25px;
+            border: none;
+            text-transform: uppercase;
+
+        }
+
+        p {
+            align-self: center;
+            background: #d1d1d1;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 50px;
+            font-size: 25px;
+            border: none;
+            text-transform: uppercase;
+            width: 33%;
+        }
+
+        [type=text] {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<header>
+    <h2>NÜKLEOTİD (GEN) SEKANSLARININ NEEDLEMAN-WUNSCH VE SMİTH WATERMAN ALGORİTMASI İLE OPTİMUM HESAPLANMASI</h2>
+</header>
+
+<body class="container">
+    <table style="width:100%" class="inputs">
+        <tr>
+            <td>
+                <label>
+                    <h4>NÜKLEOTİD 1</h4>
+                </label>
+                <input type="text" id="seq_1" class='seq' value="" maxlength="30" placeholder="SEKANS GİRİNİZ" />
+            </td>
+            <td><label>
+                    <h4>NÜKLEOTİD 2</h4>
+                </label>
+                <input type="text" id="seq_2" class='seq' value="" maxlength="30" placeholder="SEKANS GİRİNİZ" />
+            </td>
+
+            <td>
+                <label>
+                    <h4>ALGORİTMA SEÇİNİZ</h4>
+                </label>
+                <select name="algoritma" id="alg">
+                    <option value=""> ALGORİTMA SEÇİNİZ</option>
+                    <option id="NW" value="NW">NEEDLEMAN-WUNSCH ALGORİTMASI</option>
+                    <option id="SW" value="SW">SMİTH WATERMAN ALGORİTMASI</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <h4>MATCH SCORE</h4>
+                </label>
+
+                <input class="params" id="matchScore" type="number" value="" placeholder="değer giriniz" />
+            </td>
+            <td>
+                <label>
+                    <h4>MİSMATCH SCORE</h4>
+                </label>
+                <input class="params" id="mismatchScore" type="number" value="" placeholder="değer giriniz" />
+            </td>
+            <td>
+                <label>
+                    <h4>GAP SCORE</h4>
+                </label>
+                <input class="params" id="gapScore" type="number" value="" placeholder="değer giriniz" />
+            </td>
+        </tr>
+
+    </table>
+
+
+    <button id="btn"> OPTİMUM HESAPLAMA / HİZALAMA </button>
+
+
+
+    <p id="name" style="color: black;"></p>
+
+    <table id="table" style="display: none"></table>
+    
+    <p id="scors" style="color: black;"></p>
+
+
+
+
+</body>
+
+
+<script src="index.js"></script>
+
+</html>
